@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header"
+import Main from "./Main"
+import Footer from "./Footer"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Separo el componente de mi archivo index.js a otro y asi deberia hacerlo con cada componente que creo
 
-export default App;
+
+const App = () =>{
+    return(
+    <>
+     <Header/>
+     <Main/>
+     <Footer/>
+    </>
+    )
+} // Componente
+
+// tengo que exportar este componente para que trabaje en el render de index.js
+
+// export default variable (asi lo puedo hacer solo una vez)
+// export variable
+export default App
