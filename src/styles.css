@@ -20,8 +20,10 @@ img{ width: 100%; height: auto;}
 }
 
 header{
-    display: block;
+    display: flex;
     padding: 20px 50px 10px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav{
@@ -30,6 +32,11 @@ nav{
     justify-content: space-between;
     align-content: space-between;
     align-items: center;
+    margin-right: 15px;
+}
+
+nav.navInFooter{
+    justify-content: center;
 }
 
 /* .Logo{
@@ -80,4 +87,22 @@ nav{
     font-family: 'Nunito', sans-serif;
     color: #9CCDA0;
     font-weight: 300;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+}
+
+footer{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
