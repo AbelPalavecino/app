@@ -1,0 +1,42 @@
+// :::: HOOKS :::: // 
+
+- Son funciones que incorporan nuevas herramientas en un componente,
+como por ejemplo la capacidad de tener estado, ciclos de vida, etc.
+- Los HOOKS nunca van fuera de un componente, siempre van dentro del componente que quieras 
+adapatar. Si quiero que algo tenga un "estado", es dentro del mismo que tengo que usar useState
+- Para incorporara varios estados dentro del componente, tengo que ejecutar useState tantas veces sea necesario
+- useState nos devuelve un arreglo/array, dicho arreglo va contener dos valores:
+    1. El valor inicial del estado
+    2. El 2do valor va contener una funcion que permite actualizar el estado, es decir que la funcion reemplaza al 
+    estado anterior [valor inicial, funcion]
+
+1) solo van dentro de un componente
+2) No pueden estar dentro de condicionales
+3) siempre tienen que estar ejecutados
+
+// :::: OPERADOR TERNARIO :::: //
+
+condicion ? retorna esto if true : o esto if false
+
+// :::: CLASE COMPLEMENTARIA  :::: //
+
+cuando uso el set, por ejemplo:
+
+setAlgo(?)
+es lo mismo que:
+Algo = ?
+
+Set lo utilizo para asignar un valor.
+
+// :::: USE EFFECTT  :::: //
+
+skeletons ? (investigar)
+
+1) El useEffect siempre se ejecuta luego de renderizar
+2) Nos permite ejecutar una funcion despues de cada renderizacion
+
+// :::: PROMISE  :::: //
+
+1) Es un objeto
+2) Describe en que estado esta una operacion
+3) si la promesa sale bien ejecuta promesa.then y si sale mal ejecuta promesa.catch

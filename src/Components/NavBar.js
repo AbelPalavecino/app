@@ -1,5 +1,7 @@
 import LogoMansa from "../Img/Logomansa.png"
 
+// const Nav = 
+
 const NavBar = (props) => {
     if(props.inHeader){
         return(

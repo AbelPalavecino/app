@@ -3,8 +3,9 @@ import NavBar from "./Components/NavBar"
 const Footer = () =>{
     return(
         <footer>
-            <NavBar inHeader={false}/>
-            <p>Copyright Mansa Visual 2022</p> 
+            <NavBar inHeader={false}
+            cosasParaMostrar={["Instagram", "Facebook", "Twitter"]}/>
+            <p>Copyright &copy; Mansa Visual 2022</p> 
         </footer>
     )
 }

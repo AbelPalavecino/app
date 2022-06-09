@@ -92,6 +92,8 @@ nav.navInFooter{
 main{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 h2{
@@ -105,4 +107,37 @@ footer{
     justify-content: center;
     flex-direction: column;
     text-align: center;
+}
+
+button{
+    cursor: pointer;
+}
+
+.countContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+.counterBtn{
+    background-color: transparent;
+}
+
+.btnSubmit{
+    margin-top: 1em;
+    display: block;
+    background-color: #9CCDA0;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    border-radius: 0.5em;
+}
+
+.counterText{
+    margin: 0 10px;
 }

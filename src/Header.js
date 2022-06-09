@@ -5,7 +5,8 @@ const Header = () => {
 
     return(
      <header>
-        <NavBar inHeader={true} />
+        <NavBar inHeader={true} 
+        cosasParaMostrar={["Link1", "Link2", "Link3"]}/>
         <CartWidget/>
      </header>
     )
