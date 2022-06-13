@@ -40,3 +40,67 @@ skeletons ? (investigar)
 1) Es un objeto
 2) Describe en que estado esta una operacion
 3) si la promesa sale bien ejecuta promesa.then y si sale mal ejecuta promesa.catch
+
+Nos notifica si un algo termino o si termino bien o mal
+
+el 99% de las veces las promesas se ejecutan automaticamente para notificarme 
+
+cuando la promesa se ejecuta ahi puedo utilizar:
+.then(()=> {
+    console.log("Salio bien")
+})
+.cath(()=> {})
+
+// :::: API  :::: //
+
+FETCH : Le das una direccion url/ip o una ruta y las condiciones de la peticion a traves de ciertos de protocolos
+
+FTP : File transfer protocol
+POP/IMAP/SMTP : Protocolo de correo
+SSH: Secure shell
+HTTP/S : Protocolo de comunicacion
+
+REQUEST(CLIENTE)
+
+URL/IP - METODO (GET/POST/DELETE/PUT) (Sirve para decirle al servidor cual es mi intencion) - version - headers - body
+
+Tipos de headers:
+content-type : aplication/json
+content-length : 12390348789
+
+Body es el objeto en si
+
+RESPONSE(SERVIDOR)
+
+
+
+Asi se escribe la solicitudes:
+
+fetch("https://fakestoreapi.com/products")
+
+fetch("https://fakestoreapi.com/products"),{
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify{nombre:"usuario1", password:"123"}
+}
+
+1) Hago el pedido con Fetch : como va tardar me da una promesa, por eso el .then / .catch
+fetch("https://fakestoreapi.com/products")
+.then((respuesta)=>{
+    console.log(respuesta)
+    console.log("termino el pedido")
+})
+.catch((Error=>{
+    console.log("hubo un error")
+}))
+
+
+DESAFIO 
+
+- El número contador nunca puede superar el stock disponible
+- De no haber stock el click no debe tener efecto y por ende no ejecutar el callback onAdd
+- Si hay stock al clickear el botón se debe ejecutar onAdd con un número que debe ser la cantidad seleccionada por el usuario.
+Te falto implementar la logica para verificar que no se sume mas cantidad de lo que el stock permite, y la ejecucion de la funcion onAdd al apretar el boton de comprar!
+

@@ -141,3 +141,12 @@ button{
 .counterText{
     margin: 0 10px;
 }
+
+.itemsContainer{
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content:space-around;
+    align-items: stretch;
+    
+}

@@ -1,28 +1,37 @@
 import { useEffect, useState } from 'react'
-import ItemCount from './ItemCount'
+import customFetch from '../Utils/customFetch'
+import productos from '../Utils/productos'
+import ItemList from './ItemList'
 
 const ItemListContainer = (props) => {
 
     const [items, setItems] = useState ([])
 
-    useEffect(()=> {
+    useEffect (() => {
+        customFetch(3000, productos)
+        .then(resultado => setItems(resultado)) 
+    }, [items])
 
-        setTimeout(() => {
-        console.log("pidiendo productos...")
-        const productosDeDB = ["Product 1", "Producto 2", "Producto 3"]
-        setItems(productosDeDB)
-    }, 2000)
+    // useEffect(()=> {
 
-    }, [])
+    //     setTimeout(() => {
+    //     console.log("pidiendo productos...")
+    //     const productosDeDB = ["Product 1", "Producto 2", "Producto 3"]
+    //     setItems(productosDeDB)
+    // }, 2000)
 
-    const onAdd = () => {}
+    // }, [])
+
+    // const onAdd = ( ) => {}
 
     return(
         <>
-        <h2>
-            {props.greeting}
-        </h2>
-        <ItemCount stock={6} onAdd={onAdd} initial={1}/>
+            <h2>
+                {props.greeting}
+            </h2>
+            <div className="itemsContainer">    
+                <ItemList productos= {items}/>
+            </div>
         </>
     )
 }
