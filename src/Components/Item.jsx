@@ -7,7 +7,7 @@ function item({id, name, image, stock}) {
     <div className="itemProduct" key={id}>
         <h3>{name}</h3>
         <img src={image} alt={name} />
-        <ItemCount stock={stock}/>
+        <ItemCount stock={stock} onAdd={()=>{console.log('Producto Agregado')}} initial={1}/>
     </div>
   )
 }
