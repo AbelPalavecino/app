@@ -26,6 +26,25 @@ const productos = [
         stock: 5
 
     }
-]
+];
+
+const producto = {
+
+    id: 1,
+    name: 'NFT 1',
+    precio: 100,
+    description: 'NFT Description',
+    image: 'https://picsum.photos/200/300?image=1',
+    stock: 3
+};
 
 export default productos;
+
+
+export const traerProducto = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(producto);
+        }, 1000);
+    });
+};

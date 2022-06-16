@@ -73,7 +73,6 @@ Body es el objeto en si
 RESPONSE(SERVIDOR)
 
 
-
 Asi se escribe la solicitudes:
 
 fetch("https://fakestoreapi.com/products")
@@ -96,11 +95,11 @@ fetch("https://fakestoreapi.com/products")
     console.log("hubo un error")
 }))
 
+useEffect
 
-DESAFIO 
+Permite dejar una tarea pesada para renderizar "despues" sin bloquear el DOM, y por este motivo,
+en la espera de la ejecucion de la misma, mostrarle algo al usuario. Por ejemplo: "Loader", "Cargando", 
+"Buscando", etc. Y asi darle la sensacion de que esta pasando algo en la web al usuario. 
+Cuando el useEffect encuentra que hubo un cambio, el componente se vuelve a ejecutar/montar.
 
-- El número contador nunca puede superar el stock disponible
-- De no haber stock el click no debe tener efecto y por ende no ejecutar el callback onAdd
-- Si hay stock al clickear el botón se debe ejecutar onAdd con un número que debe ser la cantidad seleccionada por el usuario.
-Te falto implementar la logica para verificar que no se sume mas cantidad de lo que el stock permite, y la ejecucion de la funcion onAdd al apretar el boton de comprar!
 
