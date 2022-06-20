@@ -1,18 +1,20 @@
 import React from 'react'
 import Item from './Item'
 
-function itemList({productos}) {
+function ItemList({productos}) {
   return (
     productos.map(producto =>
         <Item
         id={producto.id}
         name={producto.name}
         image={producto.image}
-        key={producto.key}
+        key={producto.id}
         stock={producto.stock}
         />
         )
   )
 }
 
-export default itemList
+
+
+export default ItemList

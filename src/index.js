@@ -8,7 +8,9 @@ import ReactDOM from 'react-dom/client';
 
 import App from "./App" // Importo App.js que va ser donde cree mis componentes
 
-import "./styles.css" 
+import "./styles.css"
+
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // Agarrar una app que ya exista de React
 

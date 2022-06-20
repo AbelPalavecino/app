@@ -1,28 +1,50 @@
 import { useEffect, useState } from 'react'
-import customFetch from '../Utils/customFetch'
-import productos from '../Utils/productos'
+import { useParams } from 'react-router-dom'
+// import customFetch, { getProductByCategory } from '../Utils/customFetch'
 import ItemList from './ItemList'
+import productos from '../Utils/productos'
+import { ProductLoader } from './ProductLoader'
 
 const ItemListContainer = (props) => {
 
     const [items, setItems] = useState ([])
+    const [cargando, setCargando] = useState(true)
+    const {category} = useParams()
 
-    useEffect (() => {
-        customFetch(3000, productos)
-        .then(resultado => setItems(resultado)) 
-    }, [items])
+    useEffect(() => {
 
-    // useEffect(()=> {
+        setCargando(true)
 
-    //     setTimeout(() => {
-    //     console.log("pidiendo productos...")
-    //     const productosDeDB = ["Product 1", "Producto 2", "Producto 3"]
-    //     setItems(productosDeDB)
-    // }, 2000)
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(category ? productos.filter((producto) =>{
+                    
+                    return producto.category == category
 
-    // }, [])
+                })
+                : productos)
+            }, 2000)
+        })
+        .then(resultado => {
+            setItems(resultado)
+            setCargando(false)
+        })
 
-    // const onAdd = ( ) => {}
+    }, [category])
+
+    // const {categoryId} = useParams()
+
+    // useEffect (() => {
+    //     if(!categoryId){
+    //         customFetch().then(response =>{
+    //             setItems(response)
+    //         })
+    //     }else{
+    //         getProductByCategory(categoryId).then(response => {
+    //             setItems(response)
+    //         })
+    //     }
+    // }, [categoryId])
 
     return(
         <>
@@ -30,7 +52,7 @@ const ItemListContainer = (props) => {
                 {props.greeting}
             </h2>
             <div className="itemsContainer">    
-                <ItemList productos= {items}/>
+                {cargando ? <ProductLoader/> : <ItemList productos={items}/>}
             </div>
         </>
     )

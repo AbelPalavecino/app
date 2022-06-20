@@ -61,7 +61,11 @@ nav.navInFooter{
 .LinksMenu{
     vertical-align: middle;
     margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
 .LinksMenu a{
     color: #2E3E49;
     font-size: 1.25rem!important;

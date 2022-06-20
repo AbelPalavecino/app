@@ -102,4 +102,36 @@ en la espera de la ejecucion de la misma, mostrarle algo al usuario. Por ejemplo
 "Buscando", etc. Y asi darle la sensacion de que esta pasando algo en la web al usuario. 
 Cuando el useEffect encuentra que hubo un cambio, el componente se vuelve a ejecutar/montar.
 
+CallBack
+
+Es una funcion que se ejecuta luego de un proceso
+
+SetTimeOut()
+
+Ejecuta una funcion despues de cierto tiempo
+
+::::::: PROMESAS :::::::
+
+La promesa recive una funcion CallBack que a su vez recibe dos parametros por 'convencion' (resolve, reject)
+
+const promesa = new promise((resolve, reject) => {
+  resolve(resultado)
+
+  reject("error en la respuesta")
+})
+
+La promesa recive un valor (resultado) el cual a traves de un metodo utilizaremos dicho valor (resultado)
+
+promesa.then( (resultado) => {
+    console.log(resultado)
+}).cath((error) => {
+    console.log("error:"+error)
+})
+
+A traves del .then mostramos el valor de resolve(resultado)
+
+Y a traves del .catch capturamos el resultado de reject, que nos devolveria en el caso que la respuesta 
+de nuestra promise no se haya cumplido
+
+
 
