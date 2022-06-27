@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom';
 
 const ItemCount = ( {stock, initial, onAdd} ) =>{
 
@@ -21,17 +22,10 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
         }
     }
 
-    // const agregar = () => {
-
-    //     if(contador < stock.stock){
-    //         setContador(contador)
-    //         console.log(contador) // definimos una funcion y la utilizo para actualizar el valor del contador
-    //     }
-
-    //     else{
-    //         console.log(null)
-    //     }
-    // }
+    //boton confirmar contador
+    const confirmarContador = (e) => {
+        onAdd=(contador)
+    };
 
 
     return(
@@ -41,7 +35,10 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
                 <span className="counterText">{contador}</span>
                 <button className="counterBtn" onClick={incrementar}><span className="material-symbols-outlined">add</span></button>
             </div>
-            <button className="btnSubmit" onClick={onAdd}>Agregar</button>
+            {/* <button className="btnSubmit" onClick={onAdd}>Agregar</button> */}
+            <Link to="/Carrito">
+             <button onClick={confirmarContador}>Agregar al carrito</button>
+            </Link>
         </div>
     )
 }

@@ -32,27 +32,13 @@ const ItemListContainer = (props) => {
 
     }, [category])
 
-    // const {categoryId} = useParams()
-
-    // useEffect (() => {
-    //     if(!categoryId){
-    //         customFetch().then(response =>{
-    //             setItems(response)
-    //         })
-    //     }else{
-    //         getProductByCategory(categoryId).then(response => {
-    //             setItems(response)
-    //         })
-    //     }
-    // }, [categoryId])
-
     return(
         <>
             <h2>
                 {props.greeting}
             </h2>
             <div className="itemsContainer">    
-                {cargando ? <ProductLoader/> : <ItemList productos={items}/>}
+                {cargando ? <ProductLoader/> : <ItemList productos={items}/> }
             </div>
         </>
     )
