@@ -24,7 +24,8 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
 
     //boton confirmar contador
     const confirmarContador = (e) => {
-        onAdd(contador)
+        e.preventDefault();
+        onAdd(contador);
     };
 
 
