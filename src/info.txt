@@ -134,4 +134,13 @@ Y a traves del .catch capturamos el resultado de reject, que nos devolveria en e
 de nuestra promise no se haya cumplido
 
 
+::::::: PROVIDER :::::::
+
+Me permite crear un componente y consultarlo desde casi cualquier punto de mi aplicacion sin importar
+cual es su padre o hijo.
+
+createContext()
+
+Funciona como un useState, almacena informacion y la puedo modificar con el tiempo.
+
 

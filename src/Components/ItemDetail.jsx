@@ -24,7 +24,7 @@ const ItemDetail = ({name, id, description, stock, precio, image}) => {
         </div>
         {estado ? (
           <>
-            <h3>Compra finalizada</h3>
+            <h3>Compra finalizada, gracias</h3>
             <Link to="/Carrito">
               <button>Agregar al carrito</button>
             </Link>
