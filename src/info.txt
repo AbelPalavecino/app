@@ -142,5 +142,6 @@ cual es su padre o hijo.
 createContext()
 
 Funciona como un useState, almacena informacion y la puedo modificar con el tiempo.
+Puedo hacer que cierta informacion viaje de un componente a otro.
 
 

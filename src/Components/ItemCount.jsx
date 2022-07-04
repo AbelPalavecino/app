@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const ItemCount = ( {stock, initial, onAdd} ) =>{
 
@@ -23,10 +23,10 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
     }
 
     //boton confirmar contador
-    const confirmarContador = (e) => {
-        e.preventDefault();
-        onAdd(contador);
-    };
+    // const confirmarContador = (e) => {
+    //     e.preventDefault();
+    //     onAdd(contador);
+    // };
 
 
     return(
@@ -36,9 +36,7 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
                 <span className="counterText">{contador}</span>
                 <button className="counterBtn" onClick={incrementar}><span className="material-symbols-outlined">add</span></button>
             </div> 
-            <Link to="/Carrito">
-                <button onClick={confirmarContador}>Agregar al carrito</button>
-            </Link>
+            <button onClick={() => onAdd(contador)}>Agregar al carrito</button>
         </div>
     )
 }

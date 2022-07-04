@@ -2,7 +2,7 @@ import Header from "./Header"
 import Main from "./Main"
 import Footer from "./Footer"
 import { BrowserRouter} from "react-router-dom"
-import { MyProvider } from "./Utils/Context" // Ubico estrategicamente el Context en App para pasarlo a los otros componentes
+import { MyProvider } from "./Utils/CartContext" // Ubico estrategicamente el Context en App para pasarlo a los otros componentes
 
 // import NavBar from "./Components/NavBar"
 // import ItemListContainer from "./Components/ItemListContainer"
@@ -16,12 +16,14 @@ const App = () =>{
     return(
     <>
      <BrowserRouter>
-        <Header/>
-        <Main/>
+        <MyProvider>
+            <Header/>
+            <Main/>
+        </MyProvider>
         <Footer/>
      </BrowserRouter>
     </>
-    )
+    ) // Por default, <Header/> y <Main/> pasan a ser children de MyProvider. Asi puedo viajar a sus hijos y pasarle cosas
 } // Componente
 
 // tengo que exportar este componente para que trabaje en el render de index.js
