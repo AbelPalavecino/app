@@ -154,3 +154,7 @@ button{
     align-items: stretch;
     
 }
+
+.itemContainer{
+    width: 50%;
+}

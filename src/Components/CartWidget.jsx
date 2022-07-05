@@ -5,7 +5,7 @@ import { contexto } from "../Utils/CartContext" // importo el Context.js donde s
 const CartWidget = () =>{
 
     const {resTotalUnidades} = useContext(contexto) // Ejecuto la funcion con un parametro del contexto completo (ho hay otra opcion) y guardo su valor
-    // console.log(resultadoProvider)
+    console.log(resTotalUnidades)
 
     // setTimeout(() => {
     //     resultadoProvider.setCarrito(["producto 1", "producto 2", "producto 3", "producto 4"])

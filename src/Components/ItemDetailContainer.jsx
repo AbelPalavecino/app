@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
   //console.log(product);
   return ( 
     <Fragment>
-      {cargando ? <ProductLoader/> : <ItemDetail {...producto}/>};
+      {cargando ? <ProductLoader/> : <ItemDetail producto={producto}/>};
     </Fragment>
   )
 };

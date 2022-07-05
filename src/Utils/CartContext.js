@@ -13,22 +13,22 @@ export const MyProvider = ({ children }) => { // children representa a los hijos
     // Con useState actualizo los valores de mi objeto y asi react los "siga/controle"
     const [carrito, setCarrito ] = useState([]);
 
-    const agregarAlCarrito = (item, cantidad) => {
-        if (hayProductos(item.id)){
-            sumarCantidad(item, cantidad);
+    const addProduct = (producto, cantidadSeleccionada) => {
+        if (hayProductos(producto.id)){
+            sumarCantidad(producto, cantidadSeleccionada);
         } else{
-        setCarrito([...carrito, {...item, cantidad}])
+        setCarrito([...carrito, {...producto, cantidadSeleccionada}])
         }
     }
 
     const hayProductos = id => carrito.some((prod) => prod.id === id);
 
-    const sumarCantidad = (item, cantidad) => {
+    const sumarCantidad = (producto, cantidadSeleccionada) => {
         const nuevosProductos = carrito.map((prod) => {
-            if (prod.id === item.id) {
+            if (prod.id === producto.id) {
                 const nuevosProductos = {
                     ...prod,
-                    cantidad: prod.cantidad + cantidad,
+                    cantidadSeleccionada: cantidadSeleccionada + cantidadSeleccionada,
                 };
                 return nuevosProductos
             } else {
@@ -38,23 +38,27 @@ export const MyProvider = ({ children }) => { // children representa a los hijos
         setCarrito(nuevosProductos)
     }
 
-    const [cant_total, setCantTotal] = useState(0);
+    const eliminarProducto = (id) => {
+        setCarrito(carrito.filter((prod) => prod.id !== id ))
+    };
+
+    const vaciarCarrito = (_) => {
+        setCarrito([]);
+    }
+
 
     const resTotalUnidades = () => {
         return 5;
     };
 
-    const [total_price, setTotalPrice] = useState(0);
-
 
     // le paso los useState al objeto
     const valueContext = {
-        carrito : carrito,
-        cant_total : cant_total,
-        total_price : total_price,
-        setCarrito : setCarrito,
-        resTotalUnidades: resTotalUnidades,
-        agregarAlCarrito : agregarAlCarrito,
+        eliminarProducto: eliminarProducto,
+        vaciarCarrito: vaciarCarrito,
+        addProduct: addProduct,
+        carrito: carrito,
+        resTotalUnidades: resTotalUnidades
     } 
 
     return(
