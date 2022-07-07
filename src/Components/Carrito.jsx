@@ -5,18 +5,37 @@ import { contexto } from "../Utils/CartContext"
 
 const Carrito = () => {
   
-  const {carrito} = useContext(contexto);
-  console.log(carrito)
+  const {carrito, eliminarProducto, vaciarCarrito} = useContext(contexto);
 
   return (
-    <>
-    <h1>Carrito</h1>
-    <Link to="/Checkout"> Proceder con la compra</Link>
-    <form>
-      <input type="text"/>
-      <button> comprar</button>
-    </form>
-    </>
+    <div className="containerItem">
+         {carrito.length === 0 ? (
+             <h3>Tu carrito está vacio</h3>
+         ) : (
+             <>
+
+                     {carrito.map((producto) => (
+
+                            <>
+                             <h2>{producto.name}</h2>
+                             <img src={producto.image} alt={producto.name} />
+                             <h2>${producto.precio}</h2>
+                             <h2>Cantidad: {producto.cantidadSeleccionada}</h2>
+                             <button onClick={() => eliminarProducto(producto.id)}>
+                                 Eliminar
+                             </button>
+
+                             </>
+
+                     ))}
+                           <> 
+
+                              <button onClick={vaciarCarrito}>Vaciar carrito</button>
+                           </>
+
+             </>
+         )}
+     </div>
   ) 
 }
 

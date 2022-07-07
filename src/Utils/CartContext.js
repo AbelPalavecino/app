@@ -28,7 +28,7 @@ export const MyProvider = ({ children }) => { // children representa a los hijos
             if (prod.id === producto.id) {
                 const nuevosProductos = {
                     ...prod,
-                    cantidadSeleccionada: cantidadSeleccionada + cantidadSeleccionada,
+                    cantidadSeleccionada: prod.cantidadSeleccionada + cantidadSeleccionada,
                 };
                 return nuevosProductos
             } else {
