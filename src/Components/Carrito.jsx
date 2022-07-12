@@ -5,7 +5,7 @@ import { contexto } from "../Utils/CartContext"
 
 const Carrito = () => {
   
-  const {carrito, eliminarProducto, vaciarCarrito} = useContext(contexto);
+  const {carrito, eliminarProducto, vaciarCarrito, precioTotal} = useContext(contexto);
 
   return (
     <div className="containerItem">
@@ -31,6 +31,10 @@ const Carrito = () => {
                            <> 
 
                               <button onClick={vaciarCarrito}>Vaciar carrito</button>
+                           </>
+
+                           <>
+                           <p>Precio Total: {precioTotal}</p>
                            </>
 
              </>

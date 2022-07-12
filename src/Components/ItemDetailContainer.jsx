@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../Utils/customFetch';
-// import { traerProducto } from '../Utils/productos';
 import ItemDetail from './ItemDetail';
 import { ProductLoader } from './ProductLoader';
+import { db } from '../Config/firebase'
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});

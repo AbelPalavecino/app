@@ -1,6 +1,6 @@
 import { createContext, useState } from "react"
 
-export const contexto = createContext() 
+export const contexto = createContext()
 // tengo que exportar el contexto para usarlo en sus hijos
 
 // Con Provider (es un componente) seteo el valor inicial del contexto.
@@ -12,10 +12,14 @@ export const MyProvider = ({ children }) => { // children representa a los hijos
 
     // Con useState actualizo los valores de mi objeto y asi react los "siga/controle"
     const [carrito, setCarrito ] = useState([]);
+    const [precioTotal, setPrecioTotal] = useState(0);
+    const [cantidadTotal, setCantidadTotal] = useState(0);
 
     const addProduct = (producto, cantidadSeleccionada) => {
         if (hayProductos(producto.id)){
             sumarCantidad(producto, cantidadSeleccionada);
+            setPrecioTotal(precioTotal + producto.precio * cantidadSeleccionada);
+            setCantidadTotal(cantidadTotal + cantidadSeleccionada);
         } else{
         setCarrito([...carrito, {...producto, cantidadSeleccionada}])
         }
@@ -47,9 +51,9 @@ export const MyProvider = ({ children }) => { // children representa a los hijos
     }
 
 
-    const resTotalUnidades = () => {
-        return 5;
-    };
+    // const resTotalUnidades = () => {
+    //     return 5;
+    // };
 
 
     // le paso los useState al objeto
@@ -58,8 +62,10 @@ export const MyProvider = ({ children }) => { // children representa a los hijos
         vaciarCarrito: vaciarCarrito,
         addProduct: addProduct,
         carrito: carrito,
-        resTotalUnidades: resTotalUnidades
-    } 
+        // resTotalUnidades: resTotalUnidades,
+        precioTotal: precioTotal,
+        cantidadTotal: cantidadTotal,
+    }
 
     return(
         <Provider value={valueContext}>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-// import customFetch, { getProductByCategory } from '../Utils/customFetch'
 import ItemList from './ItemList'
 import productos from '../Utils/productos'
 import { ProductLoader } from './ProductLoader'
+import { db } from '../Config/firebase'
+import { getDocs } from 'firebase/firestore'
 
 const ItemListContainer = (props) => {
 
