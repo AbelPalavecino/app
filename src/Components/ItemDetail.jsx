@@ -21,12 +21,11 @@ const ItemDetail = ({producto}) => {
         <img src={producto.image} alt={producto.name} />
         <div>
             <h2>{producto.name}</h2>
-            <h2>{producto.precio}</h2>
-            <h2>{producto.description}</h2>
-            <h2>{producto.stock}</h2>
+            <h3>{producto.description}</h3>
+            <p>${producto.price} <span>[ Stock:{producto.stock} ]</span></p>
         </div>
         {cant ? (
-          <Link to="/Carrito">Ver carrito</Link>
+          <button className="btnSubmit"><Link to="/Carrito">Ver carrito</Link></button>
         ) : (
           <ItemCount stock={producto.stock} onAdd={onAdd} initial={1}/>
         )}

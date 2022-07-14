@@ -16,10 +16,12 @@ export const MyProvider = ({ children }) => { // children representa a los hijos
     const [cantidadTotal, setCantidadTotal] = useState(0);
 
     const addProduct = (producto, cantidadSeleccionada) => {
+        
+        setCantidadTotal(cantidadTotal + cantidadSeleccionada);
+
         if (hayProductos(producto.id)){
             sumarCantidad(producto, cantidadSeleccionada);
             setPrecioTotal(precioTotal + producto.precio * cantidadSeleccionada);
-            setCantidadTotal(cantidadTotal + cantidadSeleccionada);
         } else{
         setCarrito([...carrito, {...producto, cantidadSeleccionada}])
         }

@@ -4,7 +4,7 @@ import ItemList from './ItemList'
 import productos from '../Utils/productos'
 import { ProductLoader } from './ProductLoader'
 import { db } from '../Config/firebase'
-import { getDocs } from 'firebase/firestore'
+import { getDocs, collection, query, where } from 'firebase/firestore'
 
 const ItemListContainer = (props) => {
 
@@ -12,25 +12,48 @@ const ItemListContainer = (props) => {
     const [cargando, setCargando] = useState(true)
     const {category} = useParams()
 
+
     useEffect(() => {
+        if (category){
+        const collectionProducts = collection(db, "products")
+        const filtroDelConsul = query(collectionProducts, where("category", "==", "visual") )
+        const consultaDataBase = getDocs(filtroDelConsul)
 
-        setCargando(true)
+        consultaDataBase
+            .then((resultado)=>{
 
-        new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(category ? productos.filter((producto) =>{
-                    
-                    return producto.category == category
-
+                console.log(resultado.docs)
+                const products_maps = resultado.docs.map(reference=>{
+                    const aux = reference.data()
+                    aux.id = reference.id
+                    return aux
                 })
-                : productos)
-            }, 2000)
-        })
-        .then(resultado => {
-            setItems(resultado)
-            setCargando(false)
-        })
 
+                setItems(products_maps)
+                setCargando(false)
+
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+
+    } else{
+        const collectionProducts = collection(db, "products")
+        const consultaDataBase = getDocs(collectionProducts)
+
+        consultaDataBase
+            .then((resultado)=>{
+                const products_maps = resultado.docs.map(reference=>{
+                    const aux = reference.data()
+                    aux.id = reference.id
+                    return aux
+                })
+
+                setItems(products_maps)
+                setCargando(false)
+
+            })
+        }
     }, [category])
 
     return(

@@ -22,12 +22,6 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
         }
     }
 
-    //boton confirmar contador
-    // const confirmarContador = (e) => {
-    //     e.preventDefault();
-    //     onAdd(contador);
-    // };
-
 
     return(
         <div className="ItemCountContainer">
@@ -36,7 +30,7 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
                 <span className="counterText">{contador}</span>
                 <button className="counterBtn" onClick={incrementar}><span className="material-symbols-outlined">add</span></button>
             </div> 
-            <button onClick={() => onAdd(contador)}>Agregar al carrito</button>
+            <button className="btnSubmit" onClick={() => onAdd(contador)}>Agregar al carrito</button>
         </div>
     )
 }

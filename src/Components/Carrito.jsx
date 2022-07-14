@@ -10,7 +10,7 @@ const Carrito = () => {
   return (
     <div className="containerItem">
          {carrito.length === 0 ? (
-             <h3>Tu carrito está vacio</h3>
+             <h1>Tu carrito está vacio</h1>
          ) : (
              <>
 
@@ -19,9 +19,9 @@ const Carrito = () => {
                             <>
                              <h2>{producto.name}</h2>
                              <img src={producto.image} alt={producto.name} />
-                             <h2>${producto.precio}</h2>
+                             <h2>${producto.price}</h2>
                              <h2>Cantidad: {producto.cantidadSeleccionada}</h2>
-                             <button onClick={() => eliminarProducto(producto.id)}>
+                             <button className="btnSubmit" onClick={() => eliminarProducto(producto.id)}>
                                  Eliminar
                              </button>
 
@@ -30,11 +30,11 @@ const Carrito = () => {
                      ))}
                            <> 
 
-                              <button onClick={vaciarCarrito}>Vaciar carrito</button>
+                              <button className="btnSubmit" onClick={vaciarCarrito}>Vaciar carrito</button>
                            </>
 
                            <>
-                           <p>Precio Total: {precioTotal}</p>
+                           <h4>Precio Total: $ {precioTotal}</h4>
                            </>
 
              </>
