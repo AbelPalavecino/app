@@ -1,4 +1,4 @@
-# Mansa Visual
+# MansaVisual
 
 MansaVisual es una página de venta de NFT de Rick & Morty
 
