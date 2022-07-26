@@ -1,4 +1,4 @@
-# Eos Shoes
+# Mansa Visual
 
 MansaVisual es una página de venta de NFT de Rick & Morty
 
