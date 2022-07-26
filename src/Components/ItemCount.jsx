@@ -1,16 +1,12 @@
 import { useState } from "react"
-// import { Link } from 'react-router-dom';
 
 const ItemCount = ( {stock, initial, onAdd} ) =>{
 
-    // const resultado = useState()
-    // console.log(resultado)
-
-    const [contador, setContador] = useState(initial) // defino el valor inicial del contador
+    const [contador, setContador] = useState(initial)
 
     const incrementar = () =>{
         if(contador < stock){
-            setContador(contador +1) // definimos una funcion y la utilizo para actualizar el valor del contador
+            setContador(contador +1)
         }else{
             console.log('Lo sentimos, no hay stock')
         }
@@ -18,7 +14,7 @@ const ItemCount = ( {stock, initial, onAdd} ) =>{
 
     const reducir = () =>{
         if(contador > 1){
-            setContador( contador - 1 ) // definimos una funcion y la util
+            setContador( contador - 1 )
         }
     }
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useState } from "react"
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom';
@@ -17,18 +17,23 @@ const ItemDetail = ({producto}) => {
   }
 
   return (
-    <div className="container-item">
+    <div className="containerItemDetail">
+      <div className='imgDetailContainer'>
         <img src={producto.image} alt={producto.name} />
-        <div>
-            <h2>{producto.name}</h2>
-            <h3>{producto.description}</h3>
-            <p>${producto.price} <span>[ Stock:{producto.stock} ]</span></p>
-        </div>
-        {cant ? (
+      </div>
+      <div>
+          <h2>{producto.name}</h2>
+          <h3>{producto.description}</h3>
+          <p>${producto.price} <span>[ Stock: {producto.stock} ]</span></p>
+          {cant ? (
+        <>
           <button className="btnSubmit"><Link to="/Carrito">Ver carrito</Link></button>
-        ) : (
-          <ItemCount stock={producto.stock} onAdd={onAdd} initial={1}/>
-        )}
+          <button className="btnSubmit"><Link to="/">Seguir comprando</Link></button>
+          </>
+      ) : (
+          <ItemCount stock={producto.stock} onAdd={onAdd} initial={1} id={producto.id} title={producto.name}/>
+      )}
+      </div>
     </div>
   )
 }

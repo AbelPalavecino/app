@@ -10,31 +10,49 @@ const Carrito = () => {
   return (
     <div className="containerItem">
          {carrito.length === 0 ? (
+            <>
              <h1>Tu carrito está vacio</h1>
+             <Link to='/' className='btnSubmit'>Volver a la tienda</Link>
+            </>
          ) : (
              <>
 
                      {carrito.map((producto) => (
 
                             <>
-                             <h2>{producto.name}</h2>
-                             <img src={producto.image} alt={producto.name} />
-                             <h2>${producto.price}</h2>
-                             <h2>Cantidad: {producto.cantidadSeleccionada}</h2>
-                             <button className="btnSubmit" onClick={() => eliminarProducto(producto.id)}>
-                                 Eliminar
-                             </button>
+
+                              <div className="contentItemCart">
+                                <div className="col"> 
+                                  <img className="imgCart" src={producto.image} alt={producto.name} />
+                                </div>
+                                <div className="col"> 
+                                  <h3>{producto.name}</h3>
+                                </div>
+                                <div className="col"> 
+                                  <span>US${producto.price}</span>
+                                </div>
+                                  <span>Cantidad: {producto.cantidadSeleccionada}</span>
+                                <div className="col"> 
+                                  <button className="btnClose" onClick={() => eliminarProducto(producto.id)}>
+                                      X
+                                  </button>
+                                </div>
+                              </div>
 
                              </>
 
                      ))}
-                           <>
-                              <button className="btnSubmit" onClick={vaciarCarrito}>Vaciar carrito</button>
-                           </>
-                           <>
-                            <h4>Precio Total: $ {precioTotal}</h4>
-                            <Link className="btnSubmit" to="/checkout">Ir al checkout</Link>
-                           </>
+
+                      <div className="handleCart">
+                           <div>
+                              <button className="btnDeleteAll" onClick={vaciarCarrito}> X VACIAR CARRITO X</button>
+                           </div>
+
+                           <div>
+                              <h4>TOTAL: $ {precioTotal}</h4>
+                              <Link className="btnConfirCompra" to="/checkout">CHECKOUT</Link>
+                           </div>
+                      </div>
 
              </>
          )}

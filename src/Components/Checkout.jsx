@@ -11,7 +11,7 @@ const Checkout = () => {
 
   const [data, setData] = useState({ name: '', email: '' });
   const [confirCompra , setConfirCompra ] = useState();
-  const {carrito} = useContext(contexto);
+  const {carrito, finalizarPedido, precioTotal} = useContext(contexto);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +33,7 @@ const Checkout = () => {
       },
       carrito,
       date: serverTimestamp(),
-      total: 99
+      total: precioTotal
     }
 
     const consulta = addDoc(collectionPedidos, dataPedido)
@@ -44,23 +44,20 @@ const Checkout = () => {
       })
       .catch(error => {
         console.log(error)
-      })
+      });
+
+      finalizarPedido()
   }
 
-//   if (confirCompra !== '') {
-//     return <h1>Gracias por tu compra, tu número de envío es: {confirCompra}</h1>;
-// }
-
   return (
-    <div className="containerItem">
-    <h1>Confirmación de compra</h1>
+    <div className="containerForm">
+    <h3>DATOS DE FACTURACIÓN</h3>
     {confirCompra&&<p className='text-center py-3'>Su compra ha sido confirmada. <br/> Su numero de pedido es: {confirCompra}</p>}
     <Form
       handleChange={handleChange}
       data={data}
       handleSubmit={handleConfirm}
     />
-    {/* <button className="btnSubmit" onClick={handleConfirm}>Finalizar compra</button> */}
     </div>
   )
 }

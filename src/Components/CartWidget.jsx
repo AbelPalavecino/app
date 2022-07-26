@@ -1,17 +1,14 @@
 import { NavLink } from "react-router-dom"
-import { useContext } from "react" // Importo este hooks para leer los valores de MyContext
-import { contexto } from "../Utils/CartContext" // importo el Context.js donde se encuentra mi contexto
+import { useContext } from "react"
+import { contexto } from "../Utils/CartContext"
 
 const CartWidget = () =>{
-
-    // const {resTotalUnidades} = useContext(contexto)
-    // console.log(resTotalUnidades)
 
     const {cantidadTotal} = useContext(contexto);
 
     return(
         <NavLink to="/Carrito">
-            <p><span className="material-symbols-outlined">shopping_cart</span>{cantidadTotal}</p>
+            <p className="cantCartWidget"><span className="material-symbols-outlined">shopping_cart</span>{cantidadTotal}</p>
         </NavLink>
     )
 }

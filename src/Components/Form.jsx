@@ -5,11 +5,18 @@ const Form = ({ handleChange, data, handleSubmit }) => {
         <div className="form">
             <form onSubmit={handleSubmit}>
                 <input
-                    placeholder="Nombre y apellido"
+                    placeholder="Nombre"
                     type="text"
                     name="name"
                     onChange={handleChange}
                     value={data.name}
+                />
+                <input
+                    placeholder="Apellido"
+                    type="text"
+                    name="name"
+                    onChange={handleChange}
+                    value={data.surname}
                 />
                 <input
                     placeholder="email@email.com"
@@ -18,7 +25,7 @@ const Form = ({ handleChange, data, handleSubmit }) => {
                     onChange={handleChange}
                     value={data.email}
                 />
-                <button className="btnSubmit">Finalizar compra</button>
+                <button className="btnSubmit">FINALIZAR COMPRA</button>
             </form>
         </div>
     );

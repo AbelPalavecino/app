@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductById } from '../Utils/customFetch';
 import ItemDetail from './ItemDetail';
 import { ProductLoader } from './ProductLoader';
 import { db } from '../Config/firebase'
@@ -21,8 +20,10 @@ const ItemDetailContainer = () => {
 
         consul
           .then(res =>{
-            const product = res.data()
-            setProducto(product)
+            setProducto({
+              id : res.id,
+              ...res.data()
+            })
             setCargando(false)
           })
           .catch((error)=>{
@@ -31,7 +32,6 @@ const ItemDetailContainer = () => {
 
         }, [])
 
-  //console.log(product);
   return ( 
     <Fragment>
       {cargando ? <ProductLoader/> : <ItemDetail producto={producto}/>};
